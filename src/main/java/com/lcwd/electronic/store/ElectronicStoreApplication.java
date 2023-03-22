@@ -23,4 +23,14 @@ public class ElectronicStoreApplication {
 	//product dto ..property...private String productImageName;
 	//in application properties give a path product.image.path=images/products/
 	//controller two methods 1.upload image and 2. serve image
+
+	//cart module
+	//generally cart is managed on client side
+	//user is required to perform cart operations
+	//class --entity--Cart
+	//class --entity--CartItem
+	//creating dtos of cartItem and cart
+	//create interface cartservice
+	//create interface CartReposifory
+	//create class inside impl with name CardServiceImpl
 }
