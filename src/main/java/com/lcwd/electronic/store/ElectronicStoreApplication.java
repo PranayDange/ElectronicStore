@@ -33,4 +33,9 @@ public class ElectronicStoreApplication {
 	//create interface cartservice
 	//create interface CartReposifory
 	//create class inside impl with name CardServiceImpl
+
+
+	//order
+	//create Order class in entity
+	//create OrderItem class in entity
 }
