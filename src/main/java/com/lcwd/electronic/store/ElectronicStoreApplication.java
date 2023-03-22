@@ -38,4 +38,6 @@ public class ElectronicStoreApplication {
 	//order
 	//create Order class in entity
 	//create OrderItem class in entity
+
+	//creating dto's --OrderDto and OrderItemDto
 }
