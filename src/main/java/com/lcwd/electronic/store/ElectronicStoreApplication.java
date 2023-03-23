@@ -40,4 +40,10 @@ public class ElectronicStoreApplication {
 	//create OrderItem class in entity
 
 	//creating dto's --OrderDto and OrderItemDto
+	//create interface OrderService in services
+
+	//create jpa repository of OrderItemRepository and OrderRepository
+	//create OrderserviceImpl
+	//create controller
+
 }
