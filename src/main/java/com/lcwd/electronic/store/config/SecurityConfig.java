@@ -36,6 +36,15 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter authenticationFilter;
 
+    final String[] PUBLIC_URLS = {
+            "/swagger-ui/**",
+            "/webjars/**",
+            "/swagger-resources/**",
+            "/v3/api-docs",
+            "/v2/api-docs"
+
+    };
+
 
     /*@Bean
     public UserDetailsService userDetailsService() {
@@ -116,7 +125,7 @@ public class SecurityConfig {
 */
 
     //JWT Authentication
-    @Bean
+   /* @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf()
                 .disable()
@@ -126,6 +135,34 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/users")
                 .permitAll()
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
+                .anyRequest()
+                .authenticated()
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(authenticationEntryPoint)
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }*/
+
+    //JWT AUTH with swagger
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+
+        http.csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/auth/login")
+                .permitAll()
+                .antMatchers(HttpMethod.POST, "/users")
+                .permitAll()
+                .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
+                .antMatchers(PUBLIC_URLS)
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -177,8 +214,6 @@ public class SecurityConfig {
         configuration.addAllowedHeader("PUT");
         configuration.addAllowedHeader("OPTIONS");
         configuration.setMaxAge(3600L);
-
-
 
 
         source.registerCorsConfiguration("/**", configuration);
