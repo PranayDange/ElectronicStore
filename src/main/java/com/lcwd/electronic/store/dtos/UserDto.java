@@ -1,11 +1,14 @@
 package com.lcwd.electronic.store.dtos;
 
+import com.lcwd.electronic.store.entities.Role;
 import com.lcwd.electronic.store.validate.ImageNewValid;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,4 +35,7 @@ public class UserDto {
     //custom validater
     @ImageNewValid
     private String imageName;
+
+    private Set<RoleDto> roles = new HashSet<>();
+
 }
