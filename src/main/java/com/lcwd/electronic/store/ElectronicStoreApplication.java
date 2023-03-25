@@ -1,49 +1,64 @@
 package com.lcwd.electronic.store;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-public class ElectronicStoreApplication {
+public class ElectronicStoreApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ElectronicStoreApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ElectronicStoreApplication.class, args);
+    }
 
-	//1.class---entity -Product
-	//2.class---dtos   -ProductDto
-	//3.interface---repositories--ProductRepository
-	//4.interface--services --ProductServices
-	//5.class --service->imple --ProductServiceImpl
-	//6.class controller --ProductController
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.printf(passwordEncoder.encode("abcd"));
 
-	//for image
-	//entity ..property...private String productImageName;
-	//product dto ..property...private String productImageName;
-	//in application properties give a path product.image.path=images/products/
-	//controller two methods 1.upload image and 2. serve image
+    }
 
-	//cart module
-	//generally cart is managed on client side
-	//user is required to perform cart operations
-	//class --entity--Cart
-	//class --entity--CartItem
-	//creating dtos of cartItem and cart
-	//create interface cartservice
-	//create interface CartReposifory
-	//create class inside impl with name CardServiceImpl
+    //1.class---entity -Product
+    //2.class---dtos   -ProductDto
+    //3.interface---repositories--ProductRepository
+    //4.interface--services --ProductServices
+    //5.class --service->imple --ProductServiceImpl
+    //6.class controller --ProductController
 
 
-	//order
-	//create Order class in entity
-	//create OrderItem class in entity
+    //for image
+    //entity ..property...private String productImageName;
+    //product dto ..property...private String productImageName;
+    //in application properties give a path product.image.path=images/products/
+    //controller two methods 1.upload image and 2. serve image
 
-	//creating dto's --OrderDto and OrderItemDto
-	//create interface OrderService in services
+    //cart module
+    //generally cart is managed on client side
+    //user is required to perform cart operations
+    //class --entity--Cart
+    //class --entity--CartItem
+    //creating dtos of cartItem and cart
+    //create interface cartservice
+    //create interface CartReposifory
+    //create class inside impl with name CardServiceImpl
 
-	//create jpa repository of OrderItemRepository and OrderRepository
-	//create OrderserviceImpl
-	//create controller
+
+    //order
+    //create Order class in entity
+    //create OrderItem class in entity
+
+    //creating dto's --OrderDto and OrderItemDto
+    //create interface OrderService in services
+
+    //create jpa repository of OrderItemRepository and OrderRepository
+    //create OrderserviceImpl
+    //create controller
+
+
+    //added spring-boot-starter-security dependency in pom.xml
 
 }
