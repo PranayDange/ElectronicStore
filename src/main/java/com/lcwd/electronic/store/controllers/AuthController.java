@@ -32,7 +32,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin("*")
+
+//corsorigin by using options
+/*@CrossOrigin(
+        origins = "http://localhost:4200",
+        allowedHeaders = {"Authorization"},
+        methods = {RequestMethod.GET,RequestMethod.POST},
+        maxAge = 3600
+)*/
 public class AuthController {
     @Autowired
     private UserDetailsService userDetailsService;
