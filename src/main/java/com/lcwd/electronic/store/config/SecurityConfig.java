@@ -35,13 +35,14 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthenticationFilter authenticationFilter;
-
+    //http://localhost:9090/swagger-ui/index.html
     final String[] PUBLIC_URLS = {
             "/swagger-ui/**",
             "/webjars/**",
             "/swagger-resources/**",
             "/v3/api-docs",
-            "/v2/api-docs"
+            "/v2/api-docs",
+            "/test"
 
     };
 

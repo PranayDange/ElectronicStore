@@ -15,7 +15,9 @@ import java.util.UUID;
 @SpringBootApplication
 @EnableWebMvc
 public class ElectronicStoreApplication implements CommandLineRunner {
-
+//maven---package
+    //terminal --ls
+    //docker build -t electronicstore .
     public static void main(String[] args) {
         SpringApplication.run(ElectronicStoreApplication.class, args);
     }
